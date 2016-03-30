@@ -28,3 +28,14 @@ A basic example of using inheritance.
   > derived.bye()
   ```
 
+- override
+A example with inheritance and overriding in the python side.
+-Use:
+  ```
+  $: python3
+  > from pyderived import PyDerived
+  > a = PyDerived()
+  > a.hello()
+  > a.sayhello()
+  '''
+
