@@ -7,11 +7,11 @@ Testing heritage and other concepts of a c++/python wrapper using boost.pyhton
 # Examples
 - **hello_world**: a basic example of using boost.python.
   - Use:
-    ```
+  ```
     $: python3
     > import hello
     > hello.hello()
-    ``` 
+  ``` 
 
 - **inheritance**: a basic example of using inheritance.
   - Use:
