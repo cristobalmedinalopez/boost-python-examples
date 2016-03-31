@@ -15,7 +15,6 @@ public:
     return Derived::hello();
   }
 
-  char const* default_hello() { return this->Derived::hello(); }
 };
 
 BOOST_PYTHON_MODULE(inheritance)
@@ -25,7 +24,7 @@ BOOST_PYTHON_MODULE(inheritance)
       .def("bye", &Base::bye)
       ;
     class_<DerivedWrap, bases<Base>, boost::noncopyable >("Derived")
-      .def("hello", &Derived::hello, &DerivedWrap::default_hello)
+      .def("hello", &Derived::hello)
       .def("sayhello", &Derived::sayhello)
       ;
 }
