@@ -36,3 +36,13 @@ Testing heritage and other concepts of a c++/python wrapper using boost.pyhton
   > a.sayhello()
  ```
 
+- **override_difftypes**: an example with inheritance and overriding
+    in the python side when parameters data types are not compatibles
+    between c++ and python.
+  - Use:
+  ```
+  $: python3
+  > from pyderived import PyDerived
+  > a = PyDerived()
+  > a.sayhello()
+  ```
