@@ -18,14 +18,14 @@ private:
     PyThreadState *save_state;
 };
 
-class AcquireGIL 
+class acquireGIL 
 {
 public:
-    inline AcquireGIL(){
+    inline acquireGIL(){
         state = PyGILState_Ensure();
     }
 
-    inline ~AcquireGIL(){
+    inline ~acquireGIL(){
         PyGILState_Release(state);
     }
 private:
@@ -38,6 +38,7 @@ public:
   DerivedWrap () : Derived (){}
   //
   int hello(std::vector<char> message){
+    acquireGIL lock;
     if (override hello = this->get_override("hello")){
       boost::python::list message_;
       for (int i=0;i<message.size();i++)
@@ -49,11 +50,8 @@ public:
   }
 
   void bye(){
-    //PyThreadState *m_thread_state = PyEval_SaveThread();
-    AcquireGIL lock;
-    Base::bye();
     releaseGIL unlock;
-    //PyEval_RestoreThread(m_thread_state);
+    Base::bye();
   }
  
 };
